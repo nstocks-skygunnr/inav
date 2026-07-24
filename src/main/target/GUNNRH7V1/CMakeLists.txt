@@ -1,0 +1,1 @@
+target_stm32h743xi(GUNNRH7V1 SKIP_RELEASES)
