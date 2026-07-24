@@ -27,17 +27,20 @@
 
 #define TARGET_BOARD_IDENTIFIER "H7V1"
 #define USBD_PRODUCT_STRING "GUNNRH7V1WING"
+
 // Beeper
 #define USE_BEEPER
 #define BEEPER PB14
 #define BEEPER_INVERTED
-#define BEEPER_FREQUENCY 2500
+#define BEEPER_PWM_FREQUENCY	2500
+
 // Leds
 #define USE_LED_STRIP
 #define WS2811_PIN PE5
 #define LED0 PE6
 #define LED1 PE7
 #define LED2 PE8
+
 // UARTs
 #define USB_IO
 #define USE_VCP
@@ -62,6 +65,8 @@
 #define SERIAL_PORT_COUNT 7
 #define DEFAULT_RX_TYPE RX_TYPE_SERIAL
 #define SERIALRX_PROVIDER SERIALRX_CRSF
+#define SERIALRX_UART	SERIAL_PORT_USART6
+
 // SPI
 #define USE_SPI
 #define USE_SPI_DEVICE_1
@@ -76,6 +81,7 @@
 #define SPI4_SCK_PIN PE12
 #define SPI4_MISO_PIN PE13
 #define SPI4_MOSI_PIN PE14
+
 // I2C
 #define USE_I2C
 #define USE_I2C_DEVICE_1
@@ -84,9 +90,7 @@
 #define USE_I2C_DEVICE_2
 #define I2C2_SCL PB10
 #define I2C2_SDA PB11
-// MAG
-#define USE_MAG
-#define USE_MAG_ALL
+
 // ADC
 #define ADC_CHANNEL_1_PIN PA7
 #define VBAT_ADC_CHANNEL ADC_CHN_1
@@ -103,8 +107,13 @@
 
 // BARO
 #define USE_BARO
-#define USE_BARO_ALL
+#define USE_BARO_DPS310
 #define BARO_I2C_BUS BUS_I2C2
+
+// MAG
+#define USE_MAG
+#define MAG_I2C_BUS	BUS_I2C1
+#define USE_MAG_ALL
 
 // OSD
 #define USE_MAX7456
