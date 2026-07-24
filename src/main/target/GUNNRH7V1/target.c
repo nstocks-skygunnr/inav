@@ -26,7 +26,7 @@
 #include "drivers/pwm_mapping.h"
 #include "drivers/timer.h"
 #include "drivers/pinio.h"
-//#include "drivers/sensor.h"
+#include "drivers/sensor.h"
 
 
 timerHardware_t timerHardware[] = {
@@ -34,7 +34,7 @@ timerHardware_t timerHardware[] = {
     DEF_TIM(TIM2, CH2, PA1, TIM_USE_MOTOR, 0, 0), // S2
     DEF_TIM(TIM2, CH3, PA2, TIM_USE_MOTOR, 0, 0), // S3
     DEF_TIM(TIM2, CH4, PA3, TIM_USE_MOTOR, 0, 0), // S3
-    
+
     DEF_TIM(TIM4, CH1, PD12, TIM_USE_MOTOR, 0, 0), // S4
     DEF_TIM(TIM4, CH2, PD13, TIM_USE_MOTOR, 0, 0), // S5
     DEF_TIM(TIM4, CH3, PD14, TIM_USE_MOTOR, 0, 0), // S6
