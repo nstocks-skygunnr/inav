@@ -19,129 +19,166 @@
 
 #pragma once
 
-//#define USE_TARGET_CONFIG
+#define TARGET_BOARD_IDENTIFIER 	"H7V1"
+#define USBD_PRODUCT_STRING 		"GUNNRH7V1WING"
 
-#define DEFAULT_FEATURES        (FEATURE_OSD | FEATURE_CURRENT_METER | FEATURE_VBAT | FEATURE_TELEMETRY | FEATURE_TX_PROF_SEL | FEATURE_BLACKBOX )
+#define USE_TARGET_CONFIG
 
-
-
-#define TARGET_BOARD_IDENTIFIER "H7V1"
-#define USBD_PRODUCT_STRING "GUNNRH7V1WING"
+#define LED0 				PE6
+#define LED1 				PE7
+#define LED2 				PE8
 
 // Beeper
-#define USE_BEEPER
-#define BEEPER PB14
+//#define USE_BEEPER
+#define BEEPER 				PB14
 #define BEEPER_INVERTED
-#define BEEPER_PWM_FREQUENCY	2500
+//#define BEEPER_PWM_FREQUENCY	2500
 
-// Leds
-#define USE_LED_STRIP
-#define WS2811_PIN PE5
-#define LED0 PE6
-#define LED1 PE7
-#define LED2 PE8
-
-// UARTs
-#define USB_IO
+// Serial Ports
 #define USE_VCP
+
 #define USE_UART1
-#define UART1_RX_PIN PA10
-#define UART1_TX_PIN PA9
+#define UART1_RX_PIN 		PA10
+#define UART1_TX_PIN 		PA9
+
 #define USE_UART2
-#define UART2_RX_PIN PD6
-#define UART2_TX_PIN PD5
+#define UART2_RX_PIN 		PD6
+#define UART2_TX_PIN 		PD5
+
 #define USE_UART4
-#define UART4_RX_PIN PD0
-#define UART4_TX_PIN PD1
+#define UART4_RX_PIN 		PD0
+#define UART4_TX_PIN 		PD1
+
 #define USE_UART6
-#define UART6_RX_PIN PC7
-#define UART6_TX_PIN PC6
+#define UART6_RX_PIN 		PC7
+#define UART6_TX_PIN 		PC6
+
 #define USE_UART7
-#define UART7_RX_PIN PA8
-#define UART7_TX_PIN PA15
+#define UART7_RX_PIN 		PA8
+#define UART7_TX_PIN 		PA15
+
 #define USE_UART8
-#define UART8_RX_PIN PE0
-#define UART8_TX_PIN PE1
-#define SERIAL_PORT_COUNT 7
-#define DEFAULT_RX_TYPE RX_TYPE_SERIAL
-#define SERIALRX_PROVIDER SERIALRX_CRSF
-#define SERIALRX_UART	SERIAL_PORT_USART6
+#define UART8_RX_PIN 		PE0
+#define UART8_TX_PIN 		PE1
+
+#define SERIAL_PORT_COUNT 	7
+
+#define DEFAULT_RX_TYPE 	RX_TYPE_SERIAL
+#define SERIALRX_PROVIDER 	SERIALRX_CRSF
+#define SERIALRX_UART		SERIAL_PORT_USART6
+
+#define USE_SERIAL_4WAY_BLHELI_INTERFACE
 
 // SPI
 #define USE_SPI
+
 #define USE_SPI_DEVICE_1
-#define SPI1_SCK_PIN PB3
-#define SPI1_MISO_PIN PB4
-#define SPI1_MOSI_PIN PD7
+#define SPI1_SCK_PIN 		PB3
+#define SPI1_MISO_PIN 		PB4
+#define SPI1_MOSI_PIN 		PD7
+
 #define USE_SPI_DEVICE_2
-#define SPI2_SCK_PIN PD3
-#define SPI2_MISO_PIN PC2
-#define SPI2_MOSI_PIN PC3
+#define SPI2_SCK_PIN 		PD3
+#define SPI2_MISO_PIN 		PC2
+#define SPI2_MOSI_PIN 		PC3
+
 #define USE_SPI_DEVICE_4
-#define SPI4_SCK_PIN PE12
-#define SPI4_MISO_PIN PE13
-#define SPI4_MOSI_PIN PE14
+#define SPI4_SCK_PIN 		PE12
+#define SPI4_MISO_PIN 		PE13
+#define SPI4_MOSI_PIN 		PE14
+
+// SPI - gyros
+#define USE_DUAL_GYRO
+#define USE_TARGET_IMU_HARDWARE_DESCRIPTORS
+
+#define GYRO1_SPI_BUS		BUS_SPI1
+#define GYRO1_CS_PIN	 	PB2
+
+#define GYRO2_SPI_BUS		BUS_SPI4
+#define GYRO2_CS_PIN	 	PE15
+
+#define USE_IMU_ICM42605
+#define GYRO1_ALIGN			CW0_DEG
+#define GYRO2_ALIGN			CW270_DEG
+
+// SPI - OSD
+#define USE_MAX7456
+#define MAX7456_CS_PIN		PD4
+#define MAX7456_SPI_BUS		BUS_SPI2
 
 // I2C
 #define USE_I2C
+
 #define USE_I2C_DEVICE_1
-#define I2C1_SCL PB6
-#define I2C1_SDA PB7
+#define I2C1_SCL 			PB6
+#define I2C1_SDA 			PB7
+
 #define USE_I2C_DEVICE_2
-#define I2C2_SCL PB10
-#define I2C2_SDA PB11
+#define I2C2_SCL 			PB10
+#define I2C2_SDA 			PB11
 
-// ADC
-#define ADC_CHANNEL_1_PIN PA7
-#define VBAT_ADC_CHANNEL ADC_CHN_1
-#define ADC_CHANNEL_2_PIN PC5
-#define CURRENT_METER_ADC_CHANNEL ADC_CHN_2
-#define USE_ADC
-#define ADC_INSTANCE ADC1
+#define PITOT_I2C_BUS		BUS_I2C1
 
-// Gyro & ACC
-#define USE_IMU_ICM42605
-#define ICM42605_CS_PIN PB2
-#define ICM42605_SPI_BUS BUS_SPI1
-#define IMU_ICM42605_ALIGN    CW0_DEG
-
-// BARO
+// I2C - BARO
 #define USE_BARO
 #define USE_BARO_DPS310
-#define BARO_I2C_BUS BUS_I2C2
+#define BARO_I2C_BUS		BUS_I2C2
 
-// MAG
+// I2C - MAG
 #define USE_MAG
-#define MAG_I2C_BUS	BUS_I2C1
+#define MAG_I2C_BUS			BUS_I2C1
 #define USE_MAG_ALL
 
-// OSD
-#define USE_MAX7456
-#define MAX7456_CS_PIN PD4
-#define MAX7456_SPI_BUS BUS_SPI2
+// SD Card
+#define USE_SDCARD
+#define USE_SDCARD_SDIO
+#define SDCARD_SDIO_DEVICE	SDIODEV_1
+#define SDCARD_SDIO_4BIT
 
+#define ENABLE_BLACKBOX_LOGGING_ON_SDCARD_BY_DEFAULT
+
+// ADC
+#define USE_ADC
+#define ADC_INSTANCE 		ADC1
+
+#define ADC_CHANNEL_1_PIN 	PA7	// IN7	VSENSE
+//#define ADC_CHANNEL_2_PIN 	PC0	// IN10 Not Used
+#define ADC_CHANNEL_3_PIN 	PC1	// IN11 ESC2 Current
+#define ADC_CHANNEL_4_PIN 	PC4 // IN4  USER
+#define ADC_CHANNEL_5_PIN 	PC5	// IN8	ESC1/WING Current
+
+#define VBAT_ADC_CHANNEL			ADC_CHN_1
+//#define VBAT_SCALE_DEFAULT			2100
+
+#define CURRENT_METER_ADC_CHANNEL	ADC_CHN_5
+#define CURRENT_METER_SCALE 	1000
+
+// PINIO
 #define USE_PINIO
 #define USE_PINIOBOX
-#define PINIO1_PIN PE2
-#define PINIO2_PIN PE3
-#define PINIO3_PIN PD10
-#define PINIO4_PIN PD11
 
-// Blackbox
+#define PINIO1_PIN PE2		// USER_A
+#define PINIO2_PIN PE3		// USER_B
+#define PINIO3_PIN PD10		// CAM SEL
+#define PINIO4_PIN PD11		// 10V EN
 
+// default features
+#define DEFAULT_FEATURES    (FEATURE_OSD | FEATURE_CURRENT_METER | FEATURE_VBAT | FEATURE_TELEMETRY | FEATURE_TX_PROF_SEL | FEATURE_BLACKBOX )
 
-// Others
-
-#define MAX_PWM_OUTPUT_PORTS 10
+// PWM related
+#define MAX_PWM_OUTPUT_PORTS	12
 #define USE_SERIAL_4WAY_BLHELI_INTERFACE
 #define USE_DSHOT
 #define USE_ESC_SENSOR
-#define CURRENT_METER_SCALE 1000
 
-#define TARGET_IO_PORTA         0xffff
-#define TARGET_IO_PORTB         0xffff
-#define TARGET_IO_PORTC         0xffff
-#define TARGET_IO_PORTD         0xffff
-#define TARGET_IO_PORTE         0xffff
-#define TARGET_IO_PORTF         0xffff
-#define TARGET_IO_PORTG         0xffff
+#define USE_LED_STRIP
+#define WS2811_PIN 			PE5
+
+//#define TARGET_IO_PORTA		0xffff
+#define TARGET_IO_PORTA		(0xffff & ~(BIT(14) | BIT(13)))
+#define TARGET_IO_PORTB     0xffff
+#define TARGET_IO_PORTC     0xffff
+#define TARGET_IO_PORTD     0xffff
+#define TARGET_IO_PORTE     0xffff
+#define TARGET_IO_PORTF     0xffff
+#define TARGET_IO_PORTG     0xffff

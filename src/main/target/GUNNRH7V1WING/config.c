@@ -23,15 +23,32 @@
 
 #include "fc/fc_msp_box.h"
 #include "fc/config.h"
+#include "fc/rc_modes.h"
 
 #include "io/piniobox.h"
 
+#include "drivers/pwm_mapping.h"
+
 void targetConfiguration(void)
 {
-    pinioBoxConfigMutable()->permanentId[0] = BOX_PERMANENT_ID_USER1;
-    pinioBoxConfigMutable()->permanentId[1] = BOX_PERMANENT_ID_USER2;
-    pinioBoxConfigMutable()->permanentId[2] = BOX_PERMANENT_ID_USER3;
-    pinioBoxConfigMutable()->permanentId[3] = BOX_PERMANENT_ID_USER4;
+    pinioBoxConfigMutable()->permanentId[0] = BOX_PERMANENT_ID_USER1;	// USERA
+    pinioBoxConfigMutable()->permanentId[1] = BOX_PERMANENT_ID_USER2;	// USERB
+    pinioBoxConfigMutable()->permanentId[2] = BOX_PERMANENT_ID_USER3;	// CAM SEL
+    pinioBoxConfigMutable()->permanentId[3] = BOX_PERMANENT_ID_USER4;	// 10V EN
+
+    modeActivationConditionsMutable(0)->auxChannelIndex = 0;
+    modeActivationConditionsMutable(0)->modeId = BOXUSER1;
+
+    modeActivationConditionsMutable(1)->auxChannelIndex = 0;
+    modeActivationConditionsMutable(1)->modeId = BOXUSER1;
+	
+	modeActivationConditionsMutable(2)->auxChannelIndex = 0;
+    modeActivationConditionsMutable(2)->modeId = BOXUSER1;
+	
+	modeActivationConditionsMutable(3)->auxChannelIndex = 0;
+    modeActivationConditionsMutable(3)->modeId = BOXUSER1;
+	modeActivationConditionsMutable(3)->range.startStep = CHANNEL_VALUE_TO_STEP(CHANNEL_RANGE_MIN);
+    modeActivationConditionsMutable(3)->range.endStep = CHANNEL_VALUE_TO_STEP(CHANNEL_RANGE_MAX);
 
     beeperConfigMutable()->pwmMode = true;
 }
