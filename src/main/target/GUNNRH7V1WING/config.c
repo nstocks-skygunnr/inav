@@ -40,13 +40,13 @@ void targetConfiguration(void)
     modeActivationConditionsMutable(0)->modeId = BOXUSER1;
 
     modeActivationConditionsMutable(1)->auxChannelIndex = 0;
-    modeActivationConditionsMutable(1)->modeId = BOXUSER1;
+    modeActivationConditionsMutable(1)->modeId = BOXUSER2;
 	
 	modeActivationConditionsMutable(2)->auxChannelIndex = 0;
-    modeActivationConditionsMutable(2)->modeId = BOXUSER1;
+    modeActivationConditionsMutable(2)->modeId = BOXUSER3;
 	
 	modeActivationConditionsMutable(3)->auxChannelIndex = 0;
-    modeActivationConditionsMutable(3)->modeId = BOXUSER1;
+    modeActivationConditionsMutable(3)->modeId = BOXUSER4;
 	modeActivationConditionsMutable(3)->range.startStep = CHANNEL_VALUE_TO_STEP(CHANNEL_RANGE_MIN);
     modeActivationConditionsMutable(3)->range.endStep = CHANNEL_VALUE_TO_STEP(CHANNEL_RANGE_MAX);
 
